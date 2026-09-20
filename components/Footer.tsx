@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LEGAL_ROUTES, PRIMARY_ROUTES } from "@/lib/routes";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const contentRoutes = PRIMARY_ROUTES.slice(0, 4);
@@ -10,9 +11,7 @@ export default function Footer() {
       <div className="container-page grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="flex items-center gap-2 text-lg font-bold text-white">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white">
-              IC
-            </span>
+            <Logo className="h-8 w-8" />
             InvierteDesdeCero
           </p>
           <p className="mt-3 text-sm text-navy-300">

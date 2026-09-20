@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PRIMARY_ROUTES } from "@/lib/routes";
+import Logo from "@/components/Logo";
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,9 +18,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/90 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-navy-800">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy-700 text-emerald-300">
-            IC
-          </span>
+          <Logo className="h-8 w-8" />
           <span className="text-lg">InvierteDesdeCero</span>
         </Link>
 
