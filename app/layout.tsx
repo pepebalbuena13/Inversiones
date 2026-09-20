@@ -26,6 +26,8 @@ export const metadata: Metadata = {
     "interés compuesto",
     "calculadora interés compuesto",
     "invertir en bolsa para principiantes",
+    "cómo empezar a invertir",
+    "cómo diversificar una cartera",
     "fondos indexados",
     "S&P 500",
     "invertir en España",

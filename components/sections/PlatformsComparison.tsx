@@ -1,6 +1,7 @@
 interface Platform {
   name: string;
   url: string;
+  sponsored?: boolean;
   fees: string;
   easeOfUse: string;
   bestFor: string;
@@ -9,7 +10,8 @@ interface Platform {
 const PLATFORMS: Platform[] = [
   {
     name: "MyInvestor",
-    url: "https://www.myinvestor.es",
+    url: "https://newapp.myinvestor.es/do/signup?promotionalCode=5SUUR",
+    sponsored: true,
     fees: "0% de comisión en compra de fondos indexados; ETFs y acciones con comisión reducida",
     easeOfUse: "Muy sencilla, en español, pensada para el público generalista",
     bestFor: "Principiantes que quieren invertir en fondos indexados sin complicarse",
@@ -77,7 +79,7 @@ export default function PlatformsComparison() {
                     <a
                       href={platform.url}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel={`noopener noreferrer${platform.sponsored ? " sponsored" : ""}`}
                       className="inline-flex items-center gap-1 hover:text-emerald-700"
                     >
                       {platform.name}
@@ -96,6 +98,11 @@ export default function PlatformsComparison() {
                       </svg>
                       <span className="sr-only">(se abre en una pestaña nueva)</span>
                     </a>
+                    {platform.sponsored && (
+                      <span className="ml-1.5 badge bg-navy-100 text-navy-600 align-middle text-[10px]">
+                        Enlace de referido
+                      </span>
+                    )}
                   </th>
                   <td className="px-4 py-4 text-navy-600 sm:px-6">{platform.fees}</td>
                   <td className="px-4 py-4 text-navy-600 sm:px-6">
@@ -109,10 +116,12 @@ export default function PlatformsComparison() {
         </div>
 
         <p className="mt-6 max-w-3xl text-xs text-navy-400">
-          Pulsa el nombre de cada plataforma para ir a su web oficial. Las
-          comisiones y condiciones de los brókeres cambian con el tiempo:
-          consulta siempre la información actualizada y las condiciones legales
-          antes de invertir.
+          Pulsa el nombre de cada plataforma para ir a su web oficial. El enlace
+          de MyInvestor incluye nuestro código de referido: si te registras a
+          través de él, puede que ambos recibáis alguna ventaja, sin ningún
+          coste adicional para ti. Las comisiones y condiciones de los
+          brókeres cambian con el tiempo: consulta siempre la información
+          actualizada y las condiciones legales antes de invertir.
         </p>
       </div>
     </section>

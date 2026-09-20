@@ -8,6 +8,7 @@ export const PRIMARY_ROUTES: SiteRoute[] = [
   { href: "/interes-compuesto", label: "Interés compuesto" },
   { href: "/mercados", label: "Mercados" },
   { href: "/otros-activos", label: "Oro y cripto" },
+  { href: "/como-empezar", label: "Cómo empezar" },
   { href: "/plataformas", label: "Plataformas" },
   { href: "/errores-comunes", label: "Errores comunes" },
   { href: "/preguntas-frecuentes", label: "FAQ" },

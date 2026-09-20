@@ -32,6 +32,11 @@ const NAV_CARDS = [
     description: "Qué son, su riesgo comparado con la bolsa y cómo encajan en una cartera.",
   },
   {
+    href: "/como-empezar",
+    title: "Cómo empezar a invertir",
+    description: "Los pasos, en orden, y cómo dividir tu cartera según tu perfil de riesgo.",
+  },
+  {
     href: "/plataformas",
     title: "Comparativa de brokers",
     description: "MyInvestor, Trade Republic, Degiro e Interactive Brokers, cara a cara.",

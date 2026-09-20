@@ -16,13 +16,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/90 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between">
+      <div className="mx-auto flex h-16 w-full max-w-[96rem] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-bold text-navy-800">
           <Logo className="h-8 w-8" />
           <span className="text-lg">InvierteDesdeCero</span>
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm font-medium text-navy-600 xl:flex">
+        <nav className="hidden items-center gap-4 whitespace-nowrap text-sm font-medium text-navy-600 2xl:flex">
           {PRIMARY_ROUTES.map((route) => {
             const active = pathname === route.href;
             return (
@@ -52,7 +52,7 @@ export default function Header() {
             onClick={() => setMobileOpen((v) => !v)}
             aria-expanded={mobileOpen}
             aria-label="Abrir menú de navegación"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-navy-200 text-navy-700 xl:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-navy-200 text-navy-700 2xl:hidden"
           >
             {mobileOpen ? (
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -68,7 +68,7 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="border-t border-navy-100 bg-white xl:hidden">
+        <nav className="border-t border-navy-100 bg-white 2xl:hidden">
           <div className="container-page flex flex-col py-3">
             {PRIMARY_ROUTES.map((route) => {
               const active = pathname === route.href;
