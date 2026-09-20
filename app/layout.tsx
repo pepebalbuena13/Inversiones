@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     "invertir en bolsa para principiantes",
     "cómo empezar a invertir",
     "cómo diversificar una cartera",
+    "cuánto ahorrar al mes",
+    "glosario financiero",
     "fondos indexados",
     "S&P 500",
     "invertir en España",

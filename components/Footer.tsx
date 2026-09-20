@@ -3,8 +3,8 @@ import { LEGAL_ROUTES, PRIMARY_ROUTES } from "@/lib/routes";
 import Logo from "@/components/Logo";
 
 export default function Footer() {
-  const contentRoutes = PRIMARY_ROUTES.slice(0, 4);
-  const learnRoutes = PRIMARY_ROUTES.slice(4);
+  const contentRoutes = PRIMARY_ROUTES.slice(0, 5);
+  const learnRoutes = PRIMARY_ROUTES.slice(5);
 
   return (
     <footer className="border-t border-navy-100 bg-navy-900 text-navy-200">

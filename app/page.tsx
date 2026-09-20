@@ -17,6 +17,11 @@ const NAV_CARDS = [
       "Simula cuánto puede crecer tu dinero, con gráfico año a año y simulación opcional del IRPF.",
   },
   {
+    href: "/calculadora-objetivo",
+    title: "Calculadora de objetivo de ahorro",
+    description: "Fija una meta y calcula cuánto necesitas aportar cada mes para llegar a ella.",
+  },
+  {
     href: "/interes-compuesto",
     title: "Qué es el interés compuesto",
     description: "La base de toda inversión a largo plazo, explicada con ejemplos.",
@@ -45,6 +50,11 @@ const NAV_CARDS = [
     href: "/errores-comunes",
     title: "Errores comunes del principiante",
     description: "Los fallos más habituales al empezar a invertir, y cómo evitarlos.",
+  },
+  {
+    href: "/glosario",
+    title: "Glosario financiero",
+    description: "Los términos más habituales al invertir, explicados en lenguaje sencillo.",
   },
   {
     href: "/preguntas-frecuentes",

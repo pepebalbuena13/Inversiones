@@ -100,6 +100,40 @@ export function calculateCompoundInterest(
   };
 }
 
+export interface GoalContributionInputs {
+  targetAmount: number;
+  initialAmount: number;
+  years: number;
+  annualReturnRate: number;
+}
+
+/**
+ * Solves the compound interest formula for the monthly contribution needed
+ * to reach a target amount, given an initial amount, a time horizon and an
+ * expected annual return.
+ */
+export function calculateRequiredMonthlyContribution({
+  targetAmount,
+  initialAmount,
+  years,
+  annualReturnRate,
+}: GoalContributionInputs): number {
+  const monthlyRate = Math.pow(1 + annualReturnRate / 100, 1 / 12) - 1;
+  const months = years * 12;
+  const growthFactor = Math.pow(1 + monthlyRate, months);
+  const futureValueOfInitial = initialAmount * growthFactor;
+  const remaining = targetAmount - futureValueOfInitial;
+
+  if (remaining <= 0) return 0;
+
+  if (Math.abs(monthlyRate) < 1e-9) {
+    return round2(remaining / months);
+  }
+
+  const annuityFactor = (growthFactor - 1) / monthlyRate;
+  return round2(remaining / annuityFactor);
+}
+
 function round2(value: number): number {
   return Math.round(value * 100) / 100;
 }
