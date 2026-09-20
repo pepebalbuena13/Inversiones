@@ -73,6 +73,7 @@ export default function CompoundInterestCalculator() {
             onChange={setInitialAmount}
             min={0}
             step={100}
+            slider={{ min: 0, max: 100000, step: 100 }}
           />
           <Field
             label="Aportación mensual (€)"
@@ -80,6 +81,7 @@ export default function CompoundInterestCalculator() {
             onChange={setMonthlyContribution}
             min={0}
             step={10}
+            slider={{ min: 0, max: 2000, step: 10 }}
           />
           <Field
             label="Años de inversión"
@@ -88,6 +90,7 @@ export default function CompoundInterestCalculator() {
             min={1}
             max={60}
             step={1}
+            slider={{ min: 1, max: 50, step: 1 }}
           />
 
           <div>
@@ -116,6 +119,7 @@ export default function CompoundInterestCalculator() {
                   max={30}
                   step={0.5}
                   hideLabel
+                  slider={{ min: -20, max: 30, step: 0.5 }}
                 />
               </div>
             )}
@@ -271,6 +275,7 @@ function Field({
   max,
   step,
   hideLabel = false,
+  slider,
 }: {
   label: string;
   value: number;
@@ -279,6 +284,7 @@ function Field({
   max?: number;
   step?: number;
   hideLabel?: boolean;
+  slider?: { min: number; max: number; step: number };
 }) {
   return (
     <div>
@@ -298,6 +304,18 @@ function Field({
         } w-full rounded-lg border border-navy-200 bg-white px-3 py-2 text-sm text-navy-800 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500`}
         aria-label={hideLabel ? label : undefined}
       />
+      {slider && (
+        <input
+          type="range"
+          min={slider.min}
+          max={slider.max}
+          step={slider.step}
+          value={Number.isNaN(value) ? slider.min : Math.min(Math.max(value, slider.min), slider.max)}
+          onChange={(e) => onChange(Number(e.target.value))}
+          className="mt-2 w-full accent-emerald-600"
+          aria-label={`${label} (control deslizante)`}
+        />
+      )}
     </div>
   );
 }
