@@ -1,5 +1,6 @@
 interface Platform {
   name: string;
+  url: string;
   fees: string;
   easeOfUse: string;
   bestFor: string;
@@ -8,24 +9,28 @@ interface Platform {
 const PLATFORMS: Platform[] = [
   {
     name: "MyInvestor",
+    url: "https://www.myinvestor.es",
     fees: "0% de comisión en compra de fondos indexados; ETFs y acciones con comisión reducida",
     easeOfUse: "Muy sencilla, en español, pensada para el público generalista",
     bestFor: "Principiantes que quieren invertir en fondos indexados sin complicarse",
   },
   {
     name: "Trade Republic",
+    url: "https://www.traderepublic.com/es-es",
     fees: "1€ por operación en acciones/ETFs; sin custodia; planes de inversión periódica gratuitos",
     easeOfUse: "App muy intuitiva y moderna, enfocada a móvil",
     bestFor: "Quien quiere invertir poco a poco en ETFs y acciones desde el móvil",
   },
   {
     name: "Degiro",
+    url: "https://www.degiro.es",
     fees: "Comisiones bajas por operación; algunos ETFs sin comisión (con condiciones)",
     easeOfUse: "Interfaz algo más técnica, pero completa y en español",
     bestFor: "Inversores con algo más de experiencia que buscan operar en varios mercados",
   },
   {
     name: "Interactive Brokers",
+    url: "https://www.interactivebrokers.com",
     fees: "Comisiones muy competitivas, especialmente en grandes volúmenes; estructura de precios compleja",
     easeOfUse: "Plataforma potente pero con curva de aprendizaje más alta",
     bestFor: "Inversores avanzados que buscan acceso a múltiples mercados globales y productos",
@@ -69,7 +74,28 @@ export default function PlatformsComparison() {
                     scope="row"
                     className="whitespace-nowrap px-4 py-4 font-semibold text-navy-800 sm:px-6"
                   >
-                    {platform.name}
+                    <a
+                      href={platform.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 hover:text-emerald-700"
+                    >
+                      {platform.name}
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-3.5 w-3.5 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M7 17L17 7M17 7H9M17 7V15"
+                        />
+                      </svg>
+                      <span className="sr-only">(se abre en una pestaña nueva)</span>
+                    </a>
                   </th>
                   <td className="px-4 py-4 text-navy-600 sm:px-6">{platform.fees}</td>
                   <td className="px-4 py-4 text-navy-600 sm:px-6">
@@ -83,9 +109,10 @@ export default function PlatformsComparison() {
         </div>
 
         <p className="mt-6 max-w-3xl text-xs text-navy-400">
-          Las comisiones y condiciones de los brókeres cambian con el tiempo.
-          Consulta siempre la información actualizada y las condiciones legales en
-          la web oficial de cada plataforma antes de invertir.
+          Pulsa el nombre de cada plataforma para ir a su web oficial. Las
+          comisiones y condiciones de los brókeres cambian con el tiempo:
+          consulta siempre la información actualizada y las condiciones legales
+          antes de invertir.
         </p>
       </div>
     </section>
