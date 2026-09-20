@@ -46,12 +46,12 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="preguntas-frecuentes" className="container-page py-16 sm:py-20">
+    <section className="container-page py-16 sm:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <h2 className="section-heading">Preguntas frecuentes</h2>
+      <h1 className="section-heading">Preguntas frecuentes</h1>
       <p className="section-subheading">
         Resolvemos las dudas más habituales de quienes empiezan a invertir.
       </p>

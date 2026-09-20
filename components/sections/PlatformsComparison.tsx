@@ -34,11 +34,11 @@ const PLATFORMS: Platform[] = [
 
 export default function PlatformsComparison() {
   return (
-    <section id="plataformas" className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-16 sm:py-20">
       <div className="container-page">
-        <h2 className="section-heading">
+        <h1 className="section-heading">
           Comparativa de plataformas de inversión en España
-        </h2>
+        </h1>
         <p className="section-subheading">
           No existe el bróker perfecto: la mejor opción depende de tu perfil, tu
           nivel de experiencia y el tipo de activos en los que quieras invertir.

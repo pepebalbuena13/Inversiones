@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 export default function CompoundInterestExplainer() {
   return (
-    <section id="interes-compuesto" className="container-page py-16 sm:py-20">
-      <h2 className="section-heading">Qué es el interés compuesto</h2>
+    <section className="container-page py-16 sm:py-20">
+      <h1 className="section-heading">Qué es el interés compuesto</h1>
       <p className="section-subheading">
         El motor que convierte pequeños ahorros constantes en un capital
         considerable a largo plazo.
@@ -53,9 +55,9 @@ export default function CompoundInterestExplainer() {
           coste), cada nueva aportación también empieza a generar sus propios
           intereses compuestos. Es la combinación de constancia y tiempo lo que
           realmente marca la diferencia. Prueba a cambiar los números en la{" "}
-          <a href="#calculadora" className="link-underline">
+          <Link href="/calculadora" className="link-underline">
             calculadora de interés compuesto
-          </a>{" "}
+          </Link>{" "}
           para ver el efecto por ti mismo.
         </p>
       </div>

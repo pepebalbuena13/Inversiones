@@ -52,9 +52,9 @@ const RISK_STYLES: Record<Market["risk"], string> = {
 
 export default function MarketsSection() {
   return (
-    <section id="mercados" className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-16 sm:py-20">
       <div className="container-page">
-        <h2 className="section-heading">Principales mercados donde invertir</h2>
+        <h1 className="section-heading">Principales mercados donde invertir</h1>
         <p className="section-subheading">
           Cada mercado tiene un perfil distinto de riesgo y rentabilidad. Conocerlos
           es el primer paso para construir una cartera acorde a tus objetivos.

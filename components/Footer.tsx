@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { LEGAL_ROUTES, PRIMARY_ROUTES } from "@/lib/routes";
 
 export default function Footer() {
+  const contentRoutes = PRIMARY_ROUTES.slice(0, 4);
+  const learnRoutes = PRIMARY_ROUTES.slice(4);
+
   return (
     <footer className="border-t border-navy-100 bg-navy-900 text-navy-200">
       <div className="container-page grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -20,19 +24,27 @@ export default function Footer() {
             Contenido
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-navy-300">
-            <li><Link href="/#calculadora" className="hover:text-emerald-300">Calculadora de interés compuesto</Link></li>
-            <li><Link href="/#mercados" className="hover:text-emerald-300">Mercados y fondos indexados</Link></li>
-            <li><Link href="/#otros-activos" className="hover:text-emerald-300">Oro y criptomonedas</Link></li>
-            <li><Link href="/#plataformas" className="hover:text-emerald-300">Comparativa de brokers</Link></li>
+            {contentRoutes.map((route) => (
+              <li key={route.href}>
+                <Link href={route.href} className="hover:text-emerald-300">
+                  {route.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-navy-100">
-            Aprende
+            Más recursos
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-navy-300">
-            <li><Link href="/#errores-comunes" className="hover:text-emerald-300">Errores del principiante</Link></li>
-            <li><Link href="/#preguntas-frecuentes" className="hover:text-emerald-300">Preguntas frecuentes</Link></li>
+            {learnRoutes.map((route) => (
+              <li key={route.href}>
+                <Link href={route.href} className="hover:text-emerald-300">
+                  {route.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
@@ -40,8 +52,13 @@ export default function Footer() {
             Legal
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-navy-300">
-            <li><Link href="/privacidad" className="hover:text-emerald-300">Política de privacidad</Link></li>
-            <li><Link href="/cookies" className="hover:text-emerald-300">Política de cookies</Link></li>
+            {LEGAL_ROUTES.map((route) => (
+              <li key={route.href}>
+                <Link href={route.href} className="hover:text-emerald-300">
+                  {route.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

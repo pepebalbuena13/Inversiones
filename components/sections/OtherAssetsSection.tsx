@@ -1,7 +1,7 @@
 export default function OtherAssetsSection() {
   return (
-    <section id="otros-activos" className="container-page py-16 sm:py-20">
-      <h2 className="section-heading">Otros activos: oro y criptomonedas</h2>
+    <section className="container-page py-16 sm:py-20">
+      <h1 className="section-heading">Otros activos: oro y criptomonedas</h1>
       <p className="section-subheading">
         Fuera de la renta variable y la renta fija tradicionales existen otros
         activos que algunos inversores usan como complemento de su cartera.

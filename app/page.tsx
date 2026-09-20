@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import CompoundInterestCalculator from "@/components/calculator/CompoundInterestCalculator";
-import CompoundInterestExplainer from "@/components/sections/CompoundInterestExplainer";
-import MarketsSection from "@/components/sections/MarketsSection";
-import OtherAssetsSection from "@/components/sections/OtherAssetsSection";
-import PlatformsComparison from "@/components/sections/PlatformsComparison";
-import CommonMistakes from "@/components/sections/CommonMistakes";
-import FAQSection from "@/components/sections/FAQSection";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Aprende a invertir desde cero con calculadora de interés compuesto",
@@ -13,6 +7,45 @@ export const metadata: Metadata = {
     "Guía educativa gratuita para aprender a invertir desde cero: calculadora de interés compuesto, mercados (S&P 500, Nasdaq, fondos indexados), oro, criptomonedas y comparativa de brokers en España.",
   alternates: { canonical: "/" },
 };
+
+const NAV_CARDS = [
+  {
+    href: "/calculadora",
+    title: "Calculadora de interés compuesto",
+    description:
+      "Simula cuánto puede crecer tu dinero, con gráfico año a año y simulación opcional del IRPF.",
+  },
+  {
+    href: "/interes-compuesto",
+    title: "Qué es el interés compuesto",
+    description: "La base de toda inversión a largo plazo, explicada con ejemplos.",
+  },
+  {
+    href: "/mercados",
+    title: "Principales mercados",
+    description: "S&P 500, Nasdaq, mercados emergentes, fondos indexados y renta fija.",
+  },
+  {
+    href: "/otros-activos",
+    title: "Oro y criptomonedas",
+    description: "Qué son, su riesgo comparado con la bolsa y cómo encajan en una cartera.",
+  },
+  {
+    href: "/plataformas",
+    title: "Comparativa de brokers",
+    description: "MyInvestor, Trade Republic, Degiro e Interactive Brokers, cara a cara.",
+  },
+  {
+    href: "/errores-comunes",
+    title: "Errores comunes del principiante",
+    description: "Los fallos más habituales al empezar a invertir, y cómo evitarlos.",
+  },
+  {
+    href: "/preguntas-frecuentes",
+    title: "Preguntas frecuentes",
+    description: "Dudas típicas sobre cuándo, cómo y cuánto invertir.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -33,18 +66,18 @@ export default function HomePage() {
               solo educación financiera clara.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#calculadora"
+              <Link
+                href="/calculadora"
                 className="rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
               >
                 Probar la calculadora
-              </a>
-              <a
-                href="#interes-compuesto"
+              </Link>
+              <Link
+                href="/interes-compuesto"
                 className="rounded-lg border border-navy-600 px-6 py-3 text-sm font-semibold text-navy-100 transition hover:bg-navy-800"
               >
                 Empezar a aprender
-              </a>
+              </Link>
             </div>
           </div>
           <div className="rounded-2xl border border-navy-700 bg-navy-800/60 p-6 text-sm text-navy-200">
@@ -67,26 +100,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="calculadora" className="bg-navy-50 py-16 sm:py-20">
+      <section className="bg-navy-50 py-16 sm:py-20">
         <div className="container-page">
-          <h2 className="section-heading">Calculadora de interés compuesto</h2>
+          <h2 className="section-heading">Explora la guía por secciones</h2>
           <p className="section-subheading">
-            Simula cómo puede crecer tu dinero a lo largo del tiempo según tu
-            inversión inicial, tus aportaciones mensuales y la rentabilidad
-            esperada.
+            Cada tema tiene su propia página, para que puedas ir directamente a lo
+            que te interesa o recorrerlas en orden.
           </p>
-          <div className="mt-10">
-            <CompoundInterestCalculator />
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {NAV_CARDS.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className="card group flex flex-col p-6 transition hover:border-emerald-300 hover:shadow-md"
+              >
+                <h3 className="text-base font-semibold text-navy-800 group-hover:text-emerald-700">
+                  {card.title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-600">
+                  {card.description}
+                </p>
+                <span className="mt-4 text-sm font-semibold text-emerald-600">
+                  Leer más →
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-
-      <CompoundInterestExplainer />
-      <MarketsSection />
-      <OtherAssetsSection />
-      <PlatformsComparison />
-      <CommonMistakes />
-      <FAQSection />
     </>
   );
 }

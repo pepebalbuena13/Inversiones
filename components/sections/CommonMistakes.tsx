@@ -33,11 +33,11 @@ const MISTAKES = [
 
 export default function CommonMistakes() {
   return (
-    <section id="errores-comunes" className="bg-navy-900 py-16 text-white sm:py-20">
+    <section className="bg-navy-900 py-16 text-white sm:py-20">
       <div className="container-page">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
           Errores comunes del principiante
-        </h2>
+        </h1>
         <p className="mt-3 max-w-2xl text-navy-200">
           Evitar estos errores es, muchas veces, más importante que encontrar la
           inversión &ldquo;perfecta&rdquo;.
