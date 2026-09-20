@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import MiniGrowthSpark from "@/components/charts/MiniGrowthSpark";
 
 export const metadata: Metadata = {
   title: "Aprende a invertir desde cero con calculadora de interés compuesto",
@@ -81,8 +82,9 @@ export default function HomePage() {
             </div>
           </div>
           <div className="rounded-2xl border border-navy-700 bg-navy-800/60 p-6 text-sm text-navy-200">
-            <p className="font-semibold text-white">En esta guía encontrarás:</p>
-            <ul className="mt-4 space-y-3">
+            <p className="font-semibold text-white">Así crece el interés compuesto</p>
+            <MiniGrowthSpark />
+            <ul className="mt-5 space-y-2.5 border-t border-navy-700 pt-4">
               <li className="flex gap-2">
                 <span className="text-emerald-400">✓</span> Calculadora de interés compuesto con impuestos IRPF
               </li>

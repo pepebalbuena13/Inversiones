@@ -1,8 +1,12 @@
+import RiskReturnScatter from "@/components/charts/RiskReturnScatter";
+
 interface Market {
   name: string;
   description: string;
   risk: "Bajo" | "Medio" | "Medio-alto" | "Alto";
   historicalReturn: string;
+  riskScore: number;
+  returnValue: number;
 }
 
 const MARKETS: Market[] = [
@@ -12,6 +16,8 @@ const MARKETS: Market[] = [
       "Índice que agrupa a las 500 mayores empresas cotizadas de Estados Unidos (Apple, Microsoft, Amazon, etc.). Es el termómetro más seguido de la economía estadounidense y una de las opciones más populares para invertir a largo plazo a través de fondos indexados o ETFs.",
     risk: "Medio",
     historicalReturn: "~10% anual de media histórica (en USD, antes de inflación)",
+    riskScore: 4.2,
+    returnValue: 10,
   },
   {
     name: "Nasdaq 100",
@@ -19,6 +25,8 @@ const MARKETS: Market[] = [
       "Índice centrado en las 100 mayores empresas no financieras que cotizan en el mercado Nasdaq, con gran peso del sector tecnológico (Apple, Nvidia, Google, Meta...). Suele tener más potencial de crecimiento, pero también más volatilidad que el S&P 500.",
     risk: "Medio-alto",
     historicalReturn: "~11-13% anual de media histórica, con mayores oscilaciones",
+    riskScore: 7,
+    returnValue: 12,
   },
   {
     name: "Mercados emergentes",
@@ -26,6 +34,8 @@ const MARKETS: Market[] = [
       "Incluyen países como China, India, Brasil o Indonesia, con economías en crecimiento pero menos estables que las desarrolladas. Ofrecen potencial de crecimiento adicional a cambio de más riesgo: inestabilidad política, divisas más volátiles y menor liquidez.",
     risk: "Alto",
     historicalReturn: "Muy variable, entre el 4% y el 10% anual según el periodo",
+    riskScore: 9,
+    returnValue: 7,
   },
   {
     name: "Fondos indexados globales",
@@ -33,6 +43,8 @@ const MARKETS: Market[] = [
       "Fondos que replican un índice muy amplio (como el MSCI World o el FTSE All-World), invirtiendo en miles de empresas de todo el mundo a la vez. Son la opción preferida de muchos inversores principiantes por su diversificación automática y bajo coste.",
     risk: "Medio",
     historicalReturn: "~7-8% anual de media histórica a largo plazo",
+    riskScore: 5.8,
+    returnValue: 7.5,
   },
   {
     name: "Renta fija",
@@ -40,6 +52,8 @@ const MARKETS: Market[] = [
       "Bonos y letras emitidos por gobiernos o empresas. A cambio de tu dinero, te pagan un interés fijo o variable durante un periodo determinado. Se considera más segura que la renta variable (acciones), aunque su rentabilidad también es menor.",
     risk: "Bajo",
     historicalReturn: "~2-4% anual en bonos de calidad, según tipos de interés",
+    riskScore: 2,
+    returnValue: 3,
   },
 ];
 
@@ -59,6 +73,10 @@ export default function MarketsSection() {
           Cada mercado tiene un perfil distinto de riesgo y rentabilidad. Conocerlos
           es el primer paso para construir una cartera acorde a tus objetivos.
         </p>
+
+        <div className="mt-10">
+          <RiskReturnScatter markets={MARKETS} />
+        </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {MARKETS.map((market) => (

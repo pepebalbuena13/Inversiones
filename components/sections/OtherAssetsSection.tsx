@@ -1,3 +1,5 @@
+import PortfolioAllocationChart from "@/components/charts/PortfolioAllocationChart";
+
 export default function OtherAssetsSection() {
   return (
     <section className="container-page py-16 sm:py-20">
@@ -57,19 +59,22 @@ export default function OtherAssetsSection() {
         </article>
       </div>
 
-      <div className="mt-8 rounded-xl border border-navy-100 bg-navy-50 p-6">
-        <h3 className="text-base font-semibold text-navy-800">
-          ¿Por qué usarlos solo como una parte pequeña de la cartera?
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-navy-600">
-          La diversificación busca equilibrar activos con comportamientos
-          distintos. El oro puede amortiguar caídas en momentos de crisis, y las
-          criptomonedas pueden aportar potencial de crecimiento adicional, pero
-          ambos son más impredecibles que una cartera bien diversificada de
-          acciones y bonos. Por eso suelen recomendarse como un complemento
-          (a menudo entre un 1&nbsp;% y un 10&nbsp;% de la cartera total) y no como el
-          núcleo principal de la inversión, especialmente para quien empieza.
-        </p>
+      <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
+        <div className="rounded-xl border border-navy-100 bg-navy-50 p-6">
+          <h3 className="text-base font-semibold text-navy-800">
+            ¿Por qué usarlos solo como una parte pequeña de la cartera?
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-navy-600">
+            La diversificación busca equilibrar activos con comportamientos
+            distintos. El oro puede amortiguar caídas en momentos de crisis, y las
+            criptomonedas pueden aportar potencial de crecimiento adicional, pero
+            ambos son más impredecibles que una cartera bien diversificada de
+            acciones y bonos. Por eso suelen recomendarse como un complemento
+            (a menudo entre un 1&nbsp;% y un 10&nbsp;% de la cartera total) y no como el
+            núcleo principal de la inversión, especialmente para quien empieza.
+          </p>
+        </div>
+        <PortfolioAllocationChart />
       </div>
     </section>
   );
