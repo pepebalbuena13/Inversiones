@@ -1,4 +1,24 @@
 import Link from "next/link";
+import CompoundVsSimpleChart from "@/components/charts/CompoundVsSimpleChart";
+import StartEarlyChart from "@/components/charts/StartEarlyChart";
+
+const EXAMPLE_STEPS = [
+  {
+    label: "Año 1",
+    value: "10.700 €",
+    detail: "Generas 700 € de intereses sobre los 10.000 € iniciales.",
+  },
+  {
+    label: "Año 2",
+    value: "11.449 €",
+    detail: "El 7 % ya se calcula sobre 10.700 €: 749 € de intereses.",
+  },
+  {
+    label: "Año 10",
+    value: "19.672 €",
+    detail: "Sin aportar más dinero, tu capital casi se duplica.",
+  },
+];
 
 export default function CompoundInterestExplainer() {
   return (
@@ -20,24 +40,28 @@ export default function CompoundInterestExplainer() {
 
         <h3>Un ejemplo sencillo</h3>
         <p>
-          Imagina que inviertes 10.000&nbsp;€ a una rentabilidad anual del 7&nbsp;%.
+          Imagina que inviertes 10.000&nbsp;€ a una rentabilidad anual del 7&nbsp;%,
+          sin tocar el dinero.
         </p>
-        <ul>
-          <li>
-            <strong>Año 1:</strong> generas 700&nbsp;€ de intereses. Tu capital pasa a
-            ser 10.700&nbsp;€.
-          </li>
-          <li>
-            <strong>Año 2:</strong> el 7&nbsp;% ya no se calcula sobre 10.000&nbsp;€, sino
-            sobre 10.700&nbsp;€, es decir, 749&nbsp;€ de intereses. Tu capital sube a
-            11.449&nbsp;€.
-          </li>
-          <li>
-            <strong>Año 10:</strong> sin aportar ni un euro más, tu capital rondaría
-            los 19.672&nbsp;€: casi el doble, solo por el efecto del interés compuesto.
-          </li>
-        </ul>
+      </div>
 
+      <div className="mt-6 grid max-w-3xl gap-4 sm:grid-cols-3">
+        {EXAMPLE_STEPS.map((step) => (
+          <div key={step.label} className="card p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">
+              {step.label}
+            </p>
+            <p className="mt-1 text-2xl font-bold text-navy-800">{step.value}</p>
+            <p className="mt-2 text-xs leading-relaxed text-navy-500">{step.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 max-w-3xl">
+        <CompoundVsSimpleChart />
+      </div>
+
+      <div className="prose-content mt-8 max-w-3xl">
         <h3>Por qué el tiempo importa más que el dinero</h3>
         <p>
           El interés compuesto no es lineal, es exponencial. Al principio la curva
@@ -47,7 +71,13 @@ export default function CompoundInterestExplainer() {
           con aportaciones grandes. Cada año que esperas para empezar a invertir es
           un año de crecimiento exponencial que pierdes para siempre.
         </p>
+      </div>
 
+      <div className="mt-6 max-w-3xl">
+        <StartEarlyChart />
+      </div>
+
+      <div className="prose-content mt-8 max-w-3xl">
         <h3>Aportaciones periódicas: el acelerador</h3>
         <p>
           Si además de la inversión inicial aportas una cantidad fija cada mes
