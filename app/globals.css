@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f7f9fc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: #0d1f36;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.section-heading {
+  @apply text-2xl sm:text-3xl font-bold tracking-tight text-navy-800;
+}
+
+.section-subheading {
+  @apply mt-3 max-w-2xl text-base text-navy-500;
+}
+
+.card {
+  @apply rounded-xl border border-navy-100 bg-white shadow-sm;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+a.link-underline {
+  @apply underline decoration-emerald-400 decoration-2 underline-offset-2 hover:text-emerald-700;
+}
+
+.prose-content h3 {
+  @apply mt-6 text-lg font-semibold text-navy-800;
+}
+
+.prose-content p {
+  @apply mt-3 leading-relaxed text-navy-600;
+}
+
+.prose-content ul {
+  @apply mt-3 list-disc space-y-2 pl-5 text-navy-600;
+}
