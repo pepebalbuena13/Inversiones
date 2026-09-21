@@ -60,12 +60,31 @@ vercel
 
 ## Monetización con Google AdSense
 
-El sitio ya incluye la estructura de contenidos, el aviso de cookies y la
-política de privacidad/cookies necesarios para solicitar la aprobación de
-Google AdSense. Una vez aprobado, añade el script de AdSense en
-`app/layout.tsx` (por ejemplo, dentro de un componente que solo cargue tras
-aceptar las cookies publicitarias) y los bloques de anuncios donde
-corresponda.
+La infraestructura de anuncios ya está integrada y lista para activar:
+
+- `components/AdSenseLoader.tsx` carga el script de AdSense en todo el
+  sitio, pero **solo** si el visitante ha aceptado las cookies (banner de
+  `components/CookieConsent.tsx`) y solo si hay un ID de cliente configurado.
+- `components/AdSlot.tsx` es un bloque de anuncio individual reutilizable;
+  ya hay dos colocados en `/glosario`
+  (`components/sections/GlossarySection.tsx`) como ejemplo.
+
+Para activarlo:
+
+1. Crea una cuenta en [Google AdSense](https://adsense.google.com) y espera
+   la aprobación (necesita el sitio ya desplegado y con tráfico real).
+2. Copia tu ID de editor (`ca-pub-XXXXXXXXXXXXXXXX`) en la variable de
+   entorno `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (ver `.env.example`), tanto en
+   local como en las variables de entorno del proyecto en Vercel.
+3. Crea unidades de anuncio en el panel de AdSense y sustituye los IDs de
+   ejemplo (`"0000000001"`, `"0000000002"`) en los `<AdSlot slot="..." />`
+   por los `data-ad-slot` reales.
+4. Añade más `<AdSlot slot="..." />` donde quieras en cualquier otra página
+   (por ejemplo en `MarketsSection` o `CommonMistakes`), reutilizando el
+   mismo componente.
+
+Sin la variable de entorno configurada, los componentes no renderizan nada:
+es seguro tenerlos en el código incluso antes de tener la cuenta aprobada.
 
 ## Aviso legal
 

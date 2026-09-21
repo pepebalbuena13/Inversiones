@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 const CONSENT_KEY = "cookie-consent";
+export const CONSENT_CHANGED_EVENT = "cookie-consent-changed";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -22,6 +23,7 @@ export default function CookieConsent() {
     } catch {
       // localStorage no disponible; ocultamos el banner igualmente
     }
+    window.dispatchEvent(new Event(CONSENT_CHANGED_EVENT));
     setVisible(false);
   };
 

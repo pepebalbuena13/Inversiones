@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdSlot from "@/components/AdSlot";
 
 interface GlossaryTerm {
   term: string;
@@ -165,22 +166,42 @@ export default function GlossarySection() {
         en lenguaje sencillo.
       </p>
 
+      <div className="max-w-3xl">
+        <AdSlot slot="0000000001" />
+      </div>
+
       <dl className="mt-10 max-w-3xl divide-y divide-navy-100 rounded-xl border border-navy-100 bg-white">
-        {TERMS.map((item) => (
-          <div key={item.term} id={slugify(item.term)} className="scroll-mt-24 p-6">
-            <dt className="text-base font-semibold text-navy-800">{item.term}</dt>
-            <dd className="mt-2 text-sm leading-relaxed text-navy-600">
-              {item.definition}
-            </dd>
-            {item.link && (
-              <Link href={item.link.href} className="link-underline mt-2 inline-block text-sm">
-                {item.link.label} →
-              </Link>
-            )}
-          </div>
+        {TERMS.slice(0, HALFWAY).map((item) => (
+          <GlossaryEntry key={item.term} item={item} />
+        ))}
+      </dl>
+
+      <div className="max-w-3xl">
+        <AdSlot slot="0000000002" />
+      </div>
+
+      <dl className="max-w-3xl divide-y divide-navy-100 rounded-xl border border-navy-100 bg-white">
+        {TERMS.slice(HALFWAY).map((item) => (
+          <GlossaryEntry key={item.term} item={item} />
         ))}
       </dl>
     </section>
+  );
+}
+
+const HALFWAY = Math.ceil(TERMS.length / 2);
+
+function GlossaryEntry({ item }: { item: GlossaryTerm }) {
+  return (
+    <div id={slugify(item.term)} className="scroll-mt-24 p-6">
+      <dt className="text-base font-semibold text-navy-800">{item.term}</dt>
+      <dd className="mt-2 text-sm leading-relaxed text-navy-600">{item.definition}</dd>
+      {item.link && (
+        <Link href={item.link.href} className="link-underline mt-2 inline-block text-sm">
+          {item.link.label} →
+        </Link>
+      )}
+    </div>
   );
 }
 
