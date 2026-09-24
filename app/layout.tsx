@@ -12,7 +12,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://www.invertirdesdecero.com";
+const SITE_URL = "https://www.inviertedesdecero.es";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

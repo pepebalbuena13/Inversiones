@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { LEGAL_ROUTES, PRIMARY_ROUTES } from "@/lib/routes";
 
-const SITE_URL = "https://www.invertirdesdecero.com";
+const SITE_URL = "https://www.inviertedesdecero.es";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
