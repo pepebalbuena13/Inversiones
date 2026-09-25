@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
-import AdSenseLoader from "@/components/AdSenseLoader";
+import AdSenseLoader, { ADSENSE_CLIENT_ID } from "@/components/AdSenseLoader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({
@@ -63,6 +63,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: ADSENSE_CLIENT_ID
+    ? { "google-adsense-account": ADSENSE_CLIENT_ID }
+    : undefined,
 };
 
 export default function RootLayout({
