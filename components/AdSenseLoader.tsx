@@ -1,7 +1,9 @@
 "use client";
 
 import Script from "next/script";
-import { ADSENSE_CLIENT_ID, useAdConsent } from "@/lib/useAdConsent";
+import { useCookieConsent } from "@/lib/useCookieConsent";
+
+export const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
 /**
  * Loads the Google AdSense script only after the visitor has accepted
@@ -9,7 +11,7 @@ import { ADSENSE_CLIENT_ID, useAdConsent } from "@/lib/useAdConsent";
  * Renders nothing until both conditions are met.
  */
 export default function AdSenseLoader() {
-  const consentGiven = useAdConsent();
+  const consentGiven = useCookieConsent();
 
   if (!ADSENSE_CLIENT_ID || !consentGiven) return null;
 

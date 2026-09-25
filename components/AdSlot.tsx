@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ADSENSE_CLIENT_ID, useAdConsent } from "@/lib/useAdConsent";
+import { useCookieConsent } from "@/lib/useCookieConsent";
+import { ADSENSE_CLIENT_ID } from "@/components/AdSenseLoader";
 
 declare global {
   interface Window {
@@ -20,7 +21,7 @@ interface AdSlotProps {
  * is set and the visitor has accepted cookies (see CookieConsent.tsx).
  */
 export default function AdSlot({ slot, className = "" }: AdSlotProps) {
-  const consentGiven = useAdConsent();
+  const consentGiven = useCookieConsent();
   const pushedRef = useRef(false);
 
   useEffect(() => {

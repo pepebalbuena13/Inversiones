@@ -6,10 +6,10 @@ import { CONSENT_CHANGED_EVENT } from "@/components/CookieConsent";
 const CONSENT_KEY = "cookie-consent";
 
 /**
- * Tracks whether the visitor has accepted cookies, so ad components only
- * render/request ads after explicit consent (see CookieConsent.tsx).
+ * Tracks whether the visitor has accepted cookies, so ads/analytics only
+ * load/run after explicit consent (see CookieConsent.tsx).
  */
-export function useAdConsent(): boolean {
+export function useCookieConsent(): boolean {
   const [consentGiven, setConsentGiven] = useState(false);
 
   useEffect(() => {
@@ -27,5 +27,3 @@ export function useAdConsent(): boolean {
 
   return consentGiven;
 }
-
-export const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;

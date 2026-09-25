@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import AdSenseLoader from "@/components/AdSenseLoader";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function RootLayout({
         <Footer />
         <CookieConsent />
         <AdSenseLoader />
+        <GoogleAnalytics />
       </body>
     </html>
   );

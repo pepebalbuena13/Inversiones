@@ -86,6 +86,27 @@ Para activarlo:
 Sin la variable de entorno configurada, los componentes no renderizan nada:
 es seguro tenerlos en el código incluso antes de tener la cuenta aprobada.
 
+## Analítica web (Google Analytics)
+
+Igual que el AdSense, `components/GoogleAnalytics.tsx` carga Google
+Analytics 4 solo si el visitante ha aceptado las cookies y solo si hay un ID
+de medición configurado:
+
+1. Crea una propiedad en [Google Analytics](https://analytics.google.com).
+2. Copia el ID de medición (`G-XXXXXXXXXX`) en la variable de entorno
+   `NEXT_PUBLIC_GA_MEASUREMENT_ID` (ver `.env.example`), tanto en local como
+   en Vercel.
+
+Sin la variable configurada, no se carga ningún script de analítica.
+
+## Verificación de Google Search Console
+
+El archivo `public/googlea6e2441f202495f8.html` verifica la propiedad del
+dominio ante Google Search Console (queda accesible en
+`https://tudominio/googlea6e2441f202495f8.html` en cuanto se despliega). Una
+vez verificada la propiedad, puedes enviar el `sitemap.xml` desde el propio
+Search Console para acelerar la indexación.
+
 ## Aviso legal
 
 El contenido de este sitio tiene fines exclusivamente educativos y no
