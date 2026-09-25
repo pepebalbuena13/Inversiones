@@ -60,31 +60,27 @@ vercel
 
 ## Monetización con Google AdSense
 
-La infraestructura de anuncios ya está integrada y lista para activar:
+La infraestructura de anuncios ya está integrada **y activa**:
 
 - `components/AdSenseLoader.tsx` carga el script de AdSense en todo el
-  sitio, pero **solo** si el visitante ha aceptado las cookies (banner de
-  `components/CookieConsent.tsx`) y solo si hay un ID de cliente configurado.
+  sitio, con el ID de editor `ca-pub-7190127104678764` puesto por defecto.
+  Solo se carga si el visitante ha aceptado las cookies (banner de
+  `components/CookieConsent.tsx`).
 - `components/AdSlot.tsx` es un bloque de anuncio individual reutilizable;
   ya hay dos colocados en `/glosario`
-  (`components/sections/GlossarySection.tsx`) como ejemplo.
+  (`components/sections/GlossarySection.tsx`) como ejemplo, con IDs de
+  unidad de ejemplo (`"0000000001"`, `"0000000002"`).
 
-Para activarlo:
+Pasos que quedan:
 
-1. Crea una cuenta en [Google AdSense](https://adsense.google.com) y espera
-   la aprobación (necesita el sitio ya desplegado y con tráfico real).
-2. Copia tu ID de editor (`ca-pub-XXXXXXXXXXXXXXXX`) en la variable de
-   entorno `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (ver `.env.example`), tanto en
-   local como en las variables de entorno del proyecto en Vercel.
-3. Crea unidades de anuncio en el panel de AdSense y sustituye los IDs de
-   ejemplo (`"0000000001"`, `"0000000002"`) en los `<AdSlot slot="..." />`
-   por los `data-ad-slot` reales.
-4. Añade más `<AdSlot slot="..." />` donde quieras en cualquier otra página
+1. Sustituye esos IDs de ejemplo por los `data-ad-slot` reales de las
+   unidades de anuncio que crees en el panel de AdSense.
+2. Añade más `<AdSlot slot="..." />` donde quieras en cualquier otra página
    (por ejemplo en `MarketsSection` o `CommonMistakes`), reutilizando el
    mismo componente.
-
-Sin la variable de entorno configurada, los componentes no renderizan nada:
-es seguro tenerlos en el código incluso antes de tener la cuenta aprobada.
+3. Si en algún momento quieres usar otra cuenta de AdSense, define
+   `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (ver `.env.example`): tiene prioridad
+   sobre el valor por defecto.
 
 ## Analítica web (Google Analytics)
 

@@ -3,7 +3,12 @@
 import Script from "next/script";
 import { useCookieConsent } from "@/lib/useCookieConsent";
 
-export const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+// El ID de editor de AdSense no es un dato sensible (queda visible en el
+// HTML público de cualquier página con anuncios), así que se deja aquí por
+// defecto para que los anuncios funcionen sin configurar nada en Vercel.
+// La variable de entorno, si se define, tiene prioridad.
+export const ADSENSE_CLIENT_ID =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-7190127104678764";
 
 /**
  * Loads the Google AdSense script only after the visitor has accepted
